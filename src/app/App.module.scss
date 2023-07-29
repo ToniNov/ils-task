@@ -1,0 +1,15 @@
+@import '../styles/_variables.scss';
+.appLayout {
+  min-height: 100vh;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $background-primary;
+  }
+
+  .sider {
+    background-color: $background-primary;
+  }
+}
