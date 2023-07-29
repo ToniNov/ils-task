@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { Layout } from 'antd';
 
 import { ReactComponent as Logo } from '../assets/logosvg.svg';
+import { XTable } from '../components/XTable/XTable';
 
 import styles from './App.module.scss';
 
@@ -15,7 +16,9 @@ const App: FC = () => {
         <Logo />
       </Header>
       <Layout>
-        <Sider className={styles.sider}>Add Table content here</Sider>
+        <Sider className={styles.sider} width="30%">
+          <XTable />
+        </Sider>
         <Content className={styles.content}>Add main container content here</Content>
       </Layout>
     </Layout>
