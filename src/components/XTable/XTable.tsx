@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { Table, Tag } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 
+import { selectRoute } from '../../redux/features/currentRoute/currentRouteSlice';
 import { fetchData } from '../../redux/features/routes/routesSlice';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { routesSelector } from '../../redux/selectors';
@@ -85,11 +86,11 @@ export const XTable: React.FC = () => {
   ];
 
   const handelSelect = (record: DataTableType): void => {
-    console.log(record);
+    dispatch(selectRoute(record));
   };
 
-  if (error !== null) {
-    <ErrorNotification error={error} />;
+  if (error !== '') {
+    return <ErrorNotification error={error} />;
   }
 
   return (

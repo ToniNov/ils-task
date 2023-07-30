@@ -1,17 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { RequestStatusType, RouteType } from '../../../types/types';
 
 export interface RoutesState {
   routes: RouteType[];
   isLoading: RequestStatusType;
-  error: null;
+  error: string;
 }
 
 const initialState: RoutesState = {
   routes: [],
   isLoading: 'idle',
-  error: null,
+  error: '',
 };
 
 export const routesSlice = createSlice({
@@ -20,13 +20,13 @@ export const routesSlice = createSlice({
   reducers: {
     fetchData: (state) => {
       state.isLoading = 'loading';
-      state.error = null;
+      state.error = '';
     },
-    fetchDataSuccess: (state, action) => {
+    fetchDataSuccess: (state, action: PayloadAction<RouteType[]>) => {
       state.isLoading = 'succeeded';
       state.routes = action.payload;
     },
-    fetchDataError: (state, action) => {
+    fetchDataError: (state, action: PayloadAction<string>) => {
       state.isLoading = 'failed';
       state.error = action.payload;
     },
