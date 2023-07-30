@@ -24,6 +24,7 @@ const currentRouteSlice = createSlice({
   reducers: {
     selectRoute(state, action: PayloadAction<DataTableType>) {
       state.isLoading = 'loading';
+      state.currentRoute = action.payload;
     },
     setRoute(state, action: PayloadAction<DataTableType>) {
       state.isLoading = 'succeeded';
